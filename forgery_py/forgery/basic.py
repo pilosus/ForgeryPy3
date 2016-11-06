@@ -70,7 +70,12 @@ def text(length=None, at_least=10, at_most=15, lowercase=True,
         length = random.randint(at_least, at_most)
 
     result = ''
-    for i in xrange(0, length):
-        result += random.choice(base_string)
+    try:
+        for i in xrange(0, length):
+            result += random.choice(base_string)
+    # Python 3 compatibility
+    except NameError:
+        for i in range(0, length):
+            result += random.choice(base_string)
 
     return result

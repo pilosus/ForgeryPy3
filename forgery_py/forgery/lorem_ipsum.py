@@ -97,8 +97,13 @@ def paragraphs(quantity=2, separator='\n\n', wrap_start='', wrap_end='',
         separator = '\n\n'
 
     result = []
-    for i in xrange(0, quantity):
-        result.append(wrap_start + sentences(sentences_quantity) + wrap_end)
+    try:
+        for i in xrange(0, quantity):
+            result.append(wrap_start + sentences(sentences_quantity) + wrap_end)
+    # Python 3 compatibility
+    except NameError:
+        for i in range(0, quantity):
+            result.append(wrap_start + sentences(sentences_quantity) + wrap_end)
 
     if as_list:
         return result
