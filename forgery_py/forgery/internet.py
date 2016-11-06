@@ -90,4 +90,4 @@ def cctld():
 
 def ip_v4():
     """Random IPv4 address."""
-    return '.'.join([str(random.randint(0, 255)) for i in xrange(0, 4)])
+    return '.'.join([str(random.randint(0, 255)) for i in range(0, 4)])
