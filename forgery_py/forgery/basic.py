@@ -23,10 +23,16 @@
 
 import random
 import string
+import hashlib, binascii
+from datetime import datetime
+
+from ..dictionaries_loader import get_dictionary
 
 HEX_DIGITS = string.hexdigits[:-6].upper()
+BOOLEAN = [True, False]
 
-__all__ = ['hex_color', 'hex_color_short', 'text']
+__all__ = ['hex_color', 'hex_color_short', 'text', 'boolean', 'encrypt',
+           'frequency', 'number', 'password']
 
 
 def hex_color():
@@ -79,3 +85,37 @@ def text(length=None, at_least=10, at_most=15, lowercase=True,
             result += random.choice(base_string)
 
     return result
+
+def boolean():
+    """Return random boolean."""
+    return random.choice(BOOLEAN)
+
+def color():
+    """Return random color name."""
+    return random.choice(get_dictionary('colors')).strip()
+
+def encrypt(password='password', salt=None):
+    """
+    Return SHA1 hexdigest of a password salted with the given time.
+    """
+    if not salt:
+        salt = str(datetime.utcnow())
+
+    dk = hashlib.pbkdf2_hmac('sha1', password.encode(), salt.encode(), 100000)
+    binascii.hexlify(dk)
+    return binascii.hexlify(dk).decode('utf-8')
+
+def frequency():
+    """Return random frequency rate."""
+    return random.choice(get_dictionary('frequencies')).strip()
+
+def number(at_least=0, at_most=10):
+    """Return a random number in the range specified."""
+    return random.choice(range(at_least, at_most))
+    
+def password(at_least=6, at_most=12, lowercase=True,
+             uppercase=True, digits=True, spaces=False, punctuation=False):
+    """Return a random string for use as a password."""
+    return text(at_least=at_least, at_most=at_most, lowercase=lowercase,
+                uppercase=uppercase, digits=digits, spaces=spaces, punctuation=punctuation)
+
