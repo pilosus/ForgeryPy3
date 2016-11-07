@@ -29,3 +29,4 @@ from .forgery import internet
 from .forgery import lorem_ipsum
 from .forgery import name
 from .forgery import personal
+from .forgery import credit_card
