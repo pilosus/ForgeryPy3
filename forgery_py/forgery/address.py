@@ -28,8 +28,8 @@ from ..dictionaries_loader import get_dictionary
 
 __all__ = [
     'street_name', 'street_number', 'street_suffix', 'street_address',
-    'city', 'state', 'state_abbrev', 'zip_code', 'phone', 'country',
-    'continent'
+    'city', 'state', 'state_abbrev', 'province', 'province_abbrev',
+    'zip_code', 'phone', 'country', 'continent'
 ]
 
 
@@ -71,6 +71,13 @@ def state_abbrev():
     """Random US abbreviated state name."""
     return random.choice(get_dictionary('state_abbrevs')).strip()
 
+def province():
+    """Return random Canadian province or territory."""
+    return random.choice(get_dictionary('provinces')).strip()
+
+def province_abbrev():
+    """Return random Canadian province or territory abbreviation."""
+    return random.choice(get_dictionary('province_abbrevs')).strip()
 
 def zip_code():
     """Random ZIP code, either in `#####` or `#####-####` format."""

@@ -36,6 +36,14 @@ class AddressForgeryTestCase(TestCase):
         result = address.state_abbrev()
         assert result + '\n' in get_dictionary('state_abbrevs')
 
+    def test_province(self):
+        result = address.province()
+        self.assertTrue(result + '\n' in get_dictionary('provinces'))
+
+    def test_province_abbrev(self):
+        result = address.province_abbrev()
+        self.assertTrue(result + '\n' in get_dictionary('province_abbrevs'))
+        
     def test_zip_code(self):
         result = address.zip_code()
         assert (re.match(r'[0-9]{5}$', result) is not None or
