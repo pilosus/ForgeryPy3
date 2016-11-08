@@ -32,4 +32,4 @@ from .forgery import personal
 from .forgery import credit_card
 from .forgery import geo
 from .forgery import monetary
-
+from .forgery import time
