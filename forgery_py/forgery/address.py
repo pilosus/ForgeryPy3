@@ -19,7 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-"""Generate forged addres-related data."""
+"""Generate forged address-related data."""
 
 import random
 import string

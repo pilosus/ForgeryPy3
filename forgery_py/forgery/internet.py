@@ -29,7 +29,7 @@ from forgery_py.forgery import lorem_ipsum
 
 __all__ = [
     'user_name', 'top_level_domain', 'domain_name',
-    'email_address', 'cctld', 'ip_v4'
+    'email_address', 'email_subject', 'cctld', 'ip_v4'
 ]
 
 

@@ -6,6 +6,8 @@
 
 from forgery_py.forgery import internet, lorem_ipsum
 
+__all__ = ['address', 'body', 'subject']
+
 
 def address(user=None):
     """An alias for internet.email_address(user)."""

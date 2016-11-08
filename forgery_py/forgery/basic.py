@@ -32,7 +32,7 @@ HEX_DIGITS = string.hexdigits[:-6].upper()
 BOOLEAN = [True, False]
 
 __all__ = ['hex_color', 'hex_color_short', 'text', 'boolean', 'encrypt',
-           'frequency', 'number', 'password']
+           'frequency', 'number', 'password', 'color']
 
 
 def hex_color():

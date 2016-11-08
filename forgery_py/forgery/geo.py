@@ -8,6 +8,12 @@
 
 import random
 
+__all__ = [
+    'latitude', 'latitude_degrees', 'latitude_direction', 'latitude_minutes',
+    'latitude_seconds', 'longitude', 'longitude_degrees' 'longitude_direction',
+    'longitude_minutes', 'longitude_seconds'
+]
+
 
 def latitude():
     """Return a random latitude in the range of [-90.0, +90.0] as a float."""
