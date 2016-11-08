@@ -31,4 +31,5 @@ from .forgery import name
 from .forgery import personal
 from .forgery import credit_card
 from .forgery import geo
+from .forgery import monetary
 
