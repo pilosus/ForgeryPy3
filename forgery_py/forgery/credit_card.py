@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2016 by Vitaly R. Samigullin <vrs {at} pilosus {dor} org>
+# Copyright (C) 2016 by Vitaly R. Samigullin <vrs {at} pilosus {dot} org>
 #
 # TODO
 # License

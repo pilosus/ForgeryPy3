@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import re
 from unittest import TestCase
-
 from forgery_py.forgery import credit_card
-from forgery_py.dictionaries_loader import get_dictionary
+
 
 class CreditCardForgeryTestCase(TestCase):
     def test_check_digit(self):
@@ -35,7 +33,6 @@ class CreditCardForgeryTestCase(TestCase):
         self.assertIn(int(str(card6)[:3]), [666, 777, 888, 999])
         self.assertTrue(divmod(card6, 10)[1],
                         credit_card.check_digit(card6))
-
 
     def test_type(self):
         result = credit_card.type()
