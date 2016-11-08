@@ -28,7 +28,9 @@ from ..dictionaries_loader import get_dictionary
 
 __all__ = [
     'word', 'words', 'title', 'sentence',
-    'sentences', 'paragraph', 'paragraphs'
+    'sentences', 'paragraph', 'paragraphs',
+    'characters', 'character', 'lorem_ipsum_characters',
+    'lorem_ipsum_words', 'text'
 ]
 
 _words = None
@@ -109,3 +111,56 @@ def paragraphs(quantity=2, separator='\n\n', wrap_start='', wrap_end='',
         return result
     else:
         return separator.join(result)
+
+
+def _to_lower_alpha_only(s):
+    """Remove non alphabetic chars (excl. space), make resulting string lowercase."""
+    s = re.sub(r'\n', ' ',  s.lower())
+    return re.sub(r'[^a-z\s]', '', s)
+
+
+def characters(quantity=10):
+    """Return random characters."""
+    line = map(_to_lower_alpha_only,
+               ''.join(random.sample(get_dictionary('lorem_ipsum'), quantity)))
+    return ''.join(line)[:quantity]
+
+
+def character():
+    """Return a random character."""
+    return characters(quantity=1)
+
+
+def text(what="sentence", *args, **kwargs):
+    """An aggregator for all above defined public methods."""
+    try:
+        if what == "character":
+            return character(*args, **kwargs)
+        elif what == "characters":
+            return characters(*args, **kwargs)
+        elif what == "word":
+            return word(*args, **kwargs)
+        elif what == "words":
+            return words(*args, **kwargs)
+        elif what == "sentence":
+            return sentence(*args, **kwargs)
+        elif what == "sentences":
+            return sentences(*args, **kwargs)
+        elif what == "paragraph":
+            return paragraph(*args, **kwargs)
+        elif what == "paragraphs":
+            return paragraphs(*args, **kwargs)
+        elif what == "title":
+            return title(*args, **kwargs)
+    except NameError as e:
+        print('No such method:', e)
+
+
+def lorem_ipsum_characters():
+    """Return the whole lorem_ipsum dictionary as a lowercase string."""
+    return _to_lower_alpha_only(''.join(get_dictionary('lorem_ipsum')))
+
+
+def lorem_ipsum_words():
+    """Return a list of all lowercased words from the lorem_ipsum dictionary."""
+    return lorem_ipsum_characters().strip().split(' ')
