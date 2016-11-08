@@ -31,6 +31,12 @@ class InternetForgeryTestCase(TestCase):
         result = internet.email_address('Tomek Wojcik')
         assert result.startswith('tomek_wojcik')
 
+    def test_email_subject(self):
+        result = internet.email_subject()
+        self.assertIn(result[0], string.ascii_uppercase)
+        self.assertEqual(len(result.split(' ')), 4)
+        self.assertIn(result[-1], ('?.!'))
+
     def test_ccld(self):
         result = internet.cctld()
         assert result + '\n'\

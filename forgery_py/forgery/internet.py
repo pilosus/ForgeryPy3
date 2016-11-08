@@ -25,6 +25,7 @@ import random
 
 from ..dictionaries_loader import get_dictionary
 from .name import first_name
+from forgery_py.forgery import lorem_ipsum
 
 __all__ = [
     'user_name', 'top_level_domain', 'domain_name',
@@ -80,6 +81,11 @@ def email_address(user=None):
         user = user.strip().replace(' ', '_').lower()
 
     return user + '@' + domain_name()
+
+
+def email_subject(words_quantity=4):
+    """An alias for lorem_ipsum.title(words_quantity)"""
+    return lorem_ipsum.title(words_quantity=words_quantity)
 
 
 def cctld():
