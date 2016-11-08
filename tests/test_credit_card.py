@@ -31,8 +31,8 @@ class CreditCardForgeryTestCase(TestCase):
                                    prefixes=[666, 777, 888, 999])
         self.assertEqual(len(str(card6)), 20)
         self.assertIn(int(str(card6)[:3]), [666, 777, 888, 999])
-        self.assertTrue(divmod(card6, 10)[1],
-                        credit_card.check_digit(card6))
+        self.assertEqual(divmod(card6, 10)[1],
+                         credit_card.check_digit(card6))
 
     def test_type(self):
         result = credit_card.type()
