@@ -33,3 +33,4 @@ from .forgery import credit_card
 from .forgery import geo
 from .forgery import monetary
 from .forgery import time
+from .forgery import russian_tax
