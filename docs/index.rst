@@ -39,12 +39,17 @@ Modules
 
    address
    basic
+   credit_card
    currency
    date
+   email
+   geo
    internet
    lorem_ipsum
    name
    personal
+   russian_tax
+   time
 
 
 Source code and license
@@ -52,7 +57,7 @@ Source code and license
 
 Much like the original Ruby gem this module is licensed under MIT License.
 
-Source code is available `on GitHub <https://github.com/tomekwojcik/ForgeryPy>`_.
+Source code is available `on GitHub <https://github.com/pilosus/ForgeryPy>`_.
 
 
 Indices and tables
