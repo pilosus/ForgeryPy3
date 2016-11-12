@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from unittest import TestCase
+import re
 
 from forgery_py.forgery import name
 from forgery_py.dictionaries_loader import get_dictionary
@@ -53,4 +54,6 @@ class NameForgeryTestCase(TestCase):
 
     def test_job_title(self):
         job_title = name.job_title()
-        self.assertIn(job_title + '\n', get_dictionary('job_titles'))
+        titles = "|".join([i.strip() for i in get_dictionary('job_title_suffixes')])
+        if not re.search(r'\s({0})$'.format(titles), job_title):
+            self.assertIn(job_title + '\n', get_dictionary('job_titles'))
