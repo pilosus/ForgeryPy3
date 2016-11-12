@@ -50,3 +50,7 @@ class NameForgeryTestCase(TestCase):
     def test_industry(self):
         result = name.industry()
         assert result + '\n' in get_dictionary('industries')
+
+    def test_job_title(self):
+        job_title = name.job_title()
+        self.assertIn(job_title + '\n', get_dictionary('job_titles'))

@@ -47,6 +47,12 @@ class BasicForgeryTestCase(TestCase):
         assert re.match(r"""[!"#$%&\\'()*+,-\.\/:;<=>?@\[\]^_`{|}~]{32}$""",
                         text7) is not None
 
+        text8 = basic.text(length=0, at_least=0, at_most=0, lowercase=False,
+                           spaces=False, uppercase=False, digits=False,
+                           punctuation=False)
+
+        self.assertEqual(text8, '')
+
     def test_boolean(self):
         result = basic.boolean()
         self.assertTrue(result in [True, False])

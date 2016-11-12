@@ -34,6 +34,9 @@ class LoremIpsumForgeryTestCase(TestCase):
         result = lorem_ipsum.sentences()
         assert len(result.split('.')) == 3
 
+        result2 = lorem_ipsum.sentences(as_list=True)
+        self.assertTrue(type(result2) == list)
+
     def test_paragraph(self):
         result = lorem_ipsum.paragraph()
         assert len(result.split('.')) == 4
@@ -110,3 +113,6 @@ class LoremIpsumForgeryTestCase(TestCase):
 
         title = lorem_ipsum.text("title")
         self.assertIn(title[-1], ('?.!'))
+
+        with self.assertRaises(NameError):
+            lorem_ipsum.text(what="no_such_method")

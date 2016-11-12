@@ -3,16 +3,17 @@
 import re
 import string
 from unittest import TestCase
-from forgery_py.forgery import email, internet, lorem_ipsum
+from forgery_py.forgery import email, internet
 
 
 class EmailForgeryTestCase(TestCase):
     def test_address(self):
-        email1 = internet.email_address()
+        email1 = email.address()
         self.assertIsNotNone(re.match(r'[a-z]+?@[a-z]+?\.[a-z]{3,4}$', email1))
 
-        email2 = internet.email_address('Vitaly Samigullin')
+        email2 = email.address('Vitaly Samigullin')
         self.assertTrue(email2.startswith('vitaly_samigullin'))
+
 
     def test_body(self):
         body1 = email.body(separator='|')
