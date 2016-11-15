@@ -1,16 +1,19 @@
 language: python
+
+### Python versions
 python:
-  - "2.7"
-  - "3.2"
-  - "3.3"
+  - "2.7"     # package tested with Python 2.7.8
+  - "3.2"     # hashlib.pbkdf2_hmac is not available
+  - "3.3"     # hashlib.pbkdf2_hmac is not available
   - "3.4"
   - "3.5"
   - "3.5-dev" # 3.5 development branch
   - "3.6-dev" # 3.6 development branch
   - "nightly" # currently points to 3.7-dev
 
-# command to install dependencies
+### command to install dependencies
+# no need to inta
 #install: "pip install -r requirements/common.txt"
 
-# command to run tests
+### command to run tests
 script: nosetests
