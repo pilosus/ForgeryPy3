@@ -61,41 +61,42 @@ __all__ = [
 
 
 def street_name():
-    """Random street name."""
+    """Return a random street name."""
     return random.choice(get_dictionary('street_names')).strip()
 
 
 def street_number():
-    """Random street number."""
+    """Return a random street number."""
     length = int(random.choice(string.digits[1:6]))
     return ''.join(random.sample(string.digits, length))
 
 
 def street_suffix():
-    """Random street suffix."""
+    """Return a random street suffix."""
     return random.choice(get_dictionary('street_suffixes')).strip()
 
 
 def street_address():
-    """
-    Random street address. Equivalent of ``street_number() + ' ' +
+    """Return a random street address.
+
+    Equivalent of ``street_number() + ' ' +
     street_name() + ' ' + street_suffix()``.
     """
     return '%s %s %s' % (street_number(), street_name(), street_suffix())
 
 
 def city():
-    """Random city name."""
+    """Return a random city name."""
     return random.choice(get_dictionary('cities')).strip()
 
 
 def state():
-    """Random US state name."""
+    """Return a random US state name."""
     return random.choice(get_dictionary('states')).strip()
 
 
 def state_abbrev():
-    """Random US abbreviated state name."""
+    """Return a random US abbreviated state name."""
     return random.choice(get_dictionary('state_abbrevs')).strip()
 
 
@@ -110,7 +111,7 @@ def province_abbrev():
 
 
 def zip_code():
-    """Random ZIP code, either in `#####` or `#####-####` format."""
+    """Return a random ZIP code, either in `#####` or `#####-####` format."""
     format = '#####'
     if random.random() >= 0.5:
         format = '#####-####'
@@ -126,7 +127,7 @@ def zip_code():
 
 
 def phone():
-    """Random phone number in `#-(###)###-####` format."""
+    """Return a random phone number in `#-(###)###-####` format."""
     format = '#-(###)###-####'
 
     result = ''
@@ -140,10 +141,10 @@ def phone():
 
 
 def country():
-    """Random country name."""
+    """Return a random country name."""
     return random.choice(get_dictionary('countries')).strip()
 
 
 def continent():
-    """Random continent name."""
+    """Return a random continent name."""
     return random.choice(get_dictionary('continents')).strip()

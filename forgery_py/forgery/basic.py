@@ -64,19 +64,19 @@ __all__ = ['hex_color', 'hex_color_short', 'text', 'boolean', 'encrypt',
 
 
 def hex_color():
-    """Random HEX color."""
+    """Return random HEX color."""
     return ''.join(random.sample(HEX_DIGITS, 6))
 
 
 def hex_color_short():
-    """Random short (e.g. `FFF` color)."""
+    """Return random short HEX color (e.g. `FFF` color)."""
     return ''.join(random.sample(HEX_DIGITS, 3))
 
 
 def text(length=None, at_least=10, at_most=15, lowercase=True,
          uppercase=True, digits=True, spaces=True, punctuation=False):
     """
-    Random text.
+    Return random text.
 
     If `length` is present the text will be exactly this chars long. Else the
     text will be something between `at_least` and `at_most` chars long.
@@ -127,7 +127,7 @@ def color():
 
 def encrypt(password='password', salt=None):
     """
-    Return SHA1 hexdigest of a password salted with the given time.
+    Return SHA1 hexdigest of a password (optionally salted with a string).
     """
     if not salt:
         salt = str(datetime.utcnow())
@@ -138,7 +138,9 @@ def encrypt(password='password', salt=None):
 
 
 def frequency():
-    """Return random frequency rate."""
+    """Return random frequency rate.
+
+    Frequency rate is taken from the `frequencies` dictionary."""
     return random.choice(get_dictionary('frequencies')).strip()
 
 

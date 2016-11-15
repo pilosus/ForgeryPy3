@@ -76,7 +76,7 @@ MONTHS_ABBR = [
 
 
 def day_of_week(abbr=False):
-    """Random (abbreviated if `abbr`) day of week name."""
+    """Return a random (abbreviated if `abbr`) day of week name."""
     if abbr:
         return random.choice(DAYS_ABBR)
     else:
@@ -84,8 +84,7 @@ def day_of_week(abbr=False):
 
 
 def month(abbr=False, numerical=False):
-    """
-    Random (abbreviated if `abbr`) month name or month number if
+    """Return a random (abbreviated if `abbr`) month name or month number if
     `numerical`.
     """
     if numerical:
@@ -107,16 +106,16 @@ def _delta(past=False, min_delta=0, max_delta=20):
 
 
 def year(past=False, min_delta=0, max_delta=20):
-    """Random year."""
+    """Return a random year."""
     return datetime.date.today().year + _delta(past, min_delta, max_delta)
 
 
 def day(month_length=31):
-    """Random day number in a `month_length` days long month."""
+    """Return a random day number in a `month_length` days long month."""
     return random.randint(1, month_length)
 
 
 def date(past=False, min_delta=0, max_delta=20):
-    """Random `datetime.date` object. Delta args are days."""
+    """Return a random `datetime.date` object. Delta args are days."""
     timedelta = datetime.timedelta(days=_delta(past, min_delta, max_delta))
     return datetime.date.today() + timedelta

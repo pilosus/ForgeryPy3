@@ -56,10 +56,10 @@ __all__ = ['description', 'code']
 
 
 def description():
-    """Random currency description, e.g. `United Kingdom Pounds`."""
+    """Return a random currency description, e.g. `United Kingdom Pounds`."""
     return random.choice(get_dictionary('currency_descriptions')).strip()
 
 
 def code():
-    """Random currency code, e.g. `GBP`."""
+    """Return a random currency code, e.g. `GBP`."""
     return random.choice(get_dictionary('currency_codes')).strip()

@@ -100,9 +100,9 @@ def number(type=None, length=None, prefixes=None):
 
     :param type: credit card type. Defaults to a random selection.
     :param length: length of the credit card number.
-    Defaults to the length for the selected card type.
+                   Defaults to the length for the selected card type.
     :param prefixes: allowed prefixes for the card number.
-    Defaults to prefixes for the selected card type.
+                     Defaults to prefixes for the selected card type.
     :return: credit card randomly generated number (int)
     """
     # select credit card type

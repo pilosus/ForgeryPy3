@@ -56,25 +56,25 @@ __all__ = ['gender', 'abbreviated_gender', 'shirt_size', 'race', 'language']
 
 
 def gender():
-    """Random gender."""
+    """Return random gender."""
     return random.choice(get_dictionary('genders')).strip()
 
 
 def abbreviated_gender():
-    """Random abbreviated gender."""
+    """Return random abbreviated gender."""
     return gender()[0:1]
 
 
 def shirt_size():
-    """Shirt size."""
+    """Return a random shirt size."""
     return random.choice(get_dictionary('shirt_sizes')).strip()
 
 
 def race():
-    """Random race."""
+    """Return random race."""
     return random.choice(get_dictionary('races')).strip()
 
 
 def language():
-    """Random language name, e.g. ``Polish``."""
+    """Return a random language name, e.g. ``Polish``."""
     return random.choice(get_dictionary('languages')).strip()

@@ -1,5 +1,31 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# MIT License
+#
+# Copyright (c) 2016 Vitaly R. Samigullin
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# -------------------------------------------------------------------------------
+# This software is based on the Tomasz Wójcik's ForgeryPy package.
+# Original license is the following:
+# -------------------------------------------------------------------------------
+#
 # Copyright (C) 2012 by Tomasz Wójcik <labs@tomekwojcik.pl>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,14 +49,14 @@
 import codecs
 import distutils.core
 
-version = '0.1'
+version = '0.3'
 
 desc_file = codecs.open('README.rst', 'r', 'utf-8')
 long_description = desc_file.read()
 desc_file.close()
 
 distutils.core.setup(
-    name="ForgeryPy",
+    name="ForgeryPy3",
     version=version,
     packages=['forgery_py', 'forgery_py.forgery'],
     package_data={
@@ -69,13 +95,13 @@ distutils.core.setup(
             'dictionaries/zones'
         ]
     },
-    author=u'Tomasz Wójcik',
-    author_email='labs@tomekwojcik.pl',
-    url='http://tomekwojcik.github.com/ForgeryPy/',
-    download_url='http://github.com/tomekwojcik/ForgeryPy/tarball/v%s' % version,
-    description='An easy to use forged data generator for Python',
+    author=u'Vitaly R. Samigullin',
+    author_email='vrs@pilosus.org',
+    url='https://pilosus.github.io/ForgeryPy3/',
+    download_url='http://github.com/pilosus/ForgeryPy3/tarball/v%s' % version,
+    description='A forged data generator updated to reflect current state of the original Ruby forgery gem',
     long_description=long_description,
-    license='https://github.com/tomekwojcik/ForgeryPy/blob/master/LICENSE',
+    license='https://github.com/pilosus/ForgeryPy3/blob/master/LICENSE',
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Other Environment",

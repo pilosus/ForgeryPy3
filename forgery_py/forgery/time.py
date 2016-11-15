@@ -55,5 +55,5 @@ __all__ = ['zone']
 
 
 def zone():
-    """Return random color name."""
+    """Return a random color name."""
     return random.choice(get_dictionary('zones')).strip()

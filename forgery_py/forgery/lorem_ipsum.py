@@ -64,12 +64,12 @@ _words = None
 
 
 def word():
-    """Random word."""
+    """Return a random word."""
     return words(quantity=1)
 
 
 def words(quantity=10, as_list=False):
-    """Random words."""
+    """Return random words."""
     global _words
 
     if not _words:
@@ -87,19 +87,19 @@ def words(quantity=10, as_list=False):
 
 
 def title(words_quantity=4):
-    """Random sentence to be used as e.g. an e-mail subject."""
+    """Return a random sentence to be used as e.g. an e-mail subject."""
     result = words(quantity=words_quantity)
     result += random.choice('?.!')
     return result.capitalize()
 
 
 def sentence():
-    """Random sentence."""
+    """Return a random sentence."""
     return sentences(quantity=1)
 
 
 def sentences(quantity=2, as_list=False):
-    """Random sentences."""
+    """Return random sentences."""
     result = [sntc.strip() for sntc in
               random.sample(get_dictionary('lorem_ipsum'), quantity)]
 
@@ -111,7 +111,7 @@ def sentences(quantity=2, as_list=False):
 
 def paragraph(separator='\n\n', wrap_start='', wrap_end='',
               html=False, sentences_quantity=3):
-    """Random paragraph."""
+    """Return a random paragraph."""
     return paragraphs(quantity=1, separator=separator, wrap_start=wrap_start,
                       wrap_end=wrap_end, html=html,
                       sentences_quantity=sentences_quantity)
@@ -119,7 +119,7 @@ def paragraph(separator='\n\n', wrap_start='', wrap_end='',
 
 def paragraphs(quantity=2, separator='\n\n', wrap_start='', wrap_end='',
                html=False, sentences_quantity=3, as_list=False):
-    """Random paragraphs."""
+    """Return random paragraphs."""
     if html:
         wrap_start = '<p>'
         wrap_end = '</p>'
@@ -190,7 +190,7 @@ def text(what="sentence", *args, **kwargs):
 
 
 def lorem_ipsum_characters():
-    """Return the whole lorem_ipsum dictionary as a lowercase string."""
+    """Return a whole lorem_ipsum dictionary as a lowercase string."""
     return _to_lower_alpha_only(''.join(get_dictionary('lorem_ipsum')))
 
 

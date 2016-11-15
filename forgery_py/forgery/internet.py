@@ -62,8 +62,7 @@ __all__ = [
 
 
 def user_name(with_num=False):
-    """
-    Return a random user name.
+    """Return a random user name.
 
     Basically it's lowercased result of
     :py:func:`~forgery_py.forgery.name.first_name()` with a number appended
@@ -82,8 +81,7 @@ def top_level_domain():
 
 
 def domain_name():
-    """
-    Return a random domain name.
+    """Return a random domain name.
 
     Lowercased result of :py:func:`~forgery_py.forgery.name.company_name()`
     plus :py:func:`~top_level_domain()`.
@@ -95,8 +93,7 @@ def domain_name():
 
 
 def email_address(user=None):
-    """
-    Return random e-mail address in a hopefully imaginary domain.
+    """Return random e-mail address in a hopefully imaginary domain.
 
     If `user` is ``None`` :py:func:`~user_name()` will be used. Otherwise it
     will be lowercased and will have spaces replaced with ``_``.
