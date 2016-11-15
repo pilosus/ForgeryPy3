@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-ForgeryPy3 documentation
-========================
+ForgeryPy documentation
+=======================
 
 ForgeryPy3 is a fake data generator fully compatible with Python 2 and 3.
 
@@ -54,6 +54,8 @@ try::
   'Melbourne'
 
 
+
+
 Modules
 =======
 
@@ -74,6 +76,11 @@ Modules
    time
 
 
+Source code
+===========
+
+Source code is available on `GitHub`_.
+
 
 Credits
 =======
@@ -87,13 +94,13 @@ Ruby `forgery`_ gem.
 License
 =======
 
-The project is sublincesed under MIT License. The original ForgeryPy
-lincensed under custom MIT-style license.
+The project is licensed under MIT License. For further information see
+``LINCENSE``.
 
 .. _ForgeryPy: https://github.com/tomekwojcik/ForgeryPy
 .. _forgery: https://github.com/sevenwire/forgery
 .. _documentation: https://pilosus.github.io/ForgeryPy3/
-
+.. _GitHub: https://github.com/pilosus/ForgeryPy3
 
 
 Indices and tables

@@ -1,2 +1,10 @@
 *~
 .DS_Store
+.coverage
+.idea/
+MANIFEST
+dist/
+docs/
+forgery_py/
+tests/
+tmp/

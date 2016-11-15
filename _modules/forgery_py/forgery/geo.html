@@ -53,6 +53,7 @@
 <span class="c1"># MIT License</span>
 <span class="c1">#</span>
 <span class="c1"># Copyright (c) 2016 Vitaly R. Samigullin</span>
+<span class="c1"># Copyright (C) 2012 by Tomasz Wójcik &lt;labs@tomekwojcik.pl&gt;</span>
 <span class="c1">#</span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
 <span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
@@ -71,31 +72,6 @@
 <span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
-<span class="c1">#</span>
-<span class="c1"># -------------------------------------------------------------------------------</span>
-<span class="c1"># This software is based on the Tomasz Wójcik&#39;s ForgeryPy package.</span>
-<span class="c1"># Original license is the following:</span>
-<span class="c1"># -------------------------------------------------------------------------------</span>
-<span class="c1">#</span>
-<span class="c1"># Copyright (C) 2012 by Tomasz Wójcik &lt;labs@tomekwojcik.pl&gt;</span>
-<span class="c1">#</span>
-<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
-<span class="c1"># in the Software without restriction, including without limitation the rights</span>
-<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
-<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
-<span class="c1"># furnished to do so, subject to the following conditions:</span>
-<span class="c1">#</span>
-<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
-<span class="c1"># all copies or substantial portions of the Software.</span>
-<span class="c1">#</span>
-<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
-<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
-<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
-<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
-<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
-<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
-<span class="c1"># THE SOFTWARE.</span>
 
 <span class="sd">&quot;&quot;&quot;Generate random geo data.&quot;&quot;&quot;</span>
 
@@ -103,7 +79,7 @@
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude_degrees&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude_minutes&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;latitude_seconds&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude_degrees&#39;</span> <span class="s1">&#39;longitude_direction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;latitude_seconds&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude_degrees&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude_direction&#39;</span><span class="p">,</span>
     <span class="s1">&#39;longitude_minutes&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude_seconds&#39;</span>
 <span class="p">]</span>
 
@@ -150,18 +126,18 @@
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">360.0</span> <span class="o">-</span> <span class="mf">180.0</span></div>
 
 
-<span class="k">def</span> <span class="nf">longitude_degrees</span><span class="p">():</span>
+<div class="viewcode-block" id="longitude_degrees"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.longitude_degrees">[docs]</a><span class="k">def</span> <span class="nf">longitude_degrees</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Return a random longitude&#39;s degrees component in the range [-180, +180].</span>
 
 <span class="sd">    Longitude&#39;s degrees is an int.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">latitude_degrees</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">latitude_degrees</span><span class="p">()</span></div>
 
 
-<span class="k">def</span> <span class="nf">longitude_direction</span><span class="p">():</span>
+<div class="viewcode-block" id="longitude_direction"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.longitude_direction">[docs]</a><span class="k">def</span> <span class="nf">longitude_direction</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Return a random longitude&#39;s direction component.</span>
 
 <span class="sd">    Longitude&#39;s direction is denoted as either &quot;E&quot; (east) or &quot;W&quot; (west).&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="longitude_minutes"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.longitude_minutes">[docs]</a><span class="k">def</span> <span class="nf">longitude_minutes</span><span class="p">():</span>
