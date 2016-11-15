@@ -2,7 +2,12 @@ ForgeryPy3
 ==========
 
 .. image:: https://travis-ci.org/pilosus/ForgeryPy3.svg?branch=master
-    :target: https://travis-ci.org/pilosus/ForgeryPy3
+   :target: https://travis-ci.org/pilosus/ForgeryPy3
+   :alt: Travis CI
+
+.. image:: https://codeclimate.com/github/pilosus/ForgeryPy3/badges/gpa.svg
+   :target: https://codeclimate.com/github/pilosus/ForgeryPy3
+   :alt: Code Climate
 
 ForgeryPy3 is a fake data generator fully compatible with Python 2 and 3.
 
