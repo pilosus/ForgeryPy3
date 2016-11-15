@@ -31,7 +31,8 @@ class RussianTaxForgeryTestCase(TestCase):
         self.assertEqual(len(inn), 10)
 
         mask = [2, 4, 10, 3, 5, 9, 4, 6, 8]
-        last_digit = sum([int(v) * mask[i] for i, v in enumerate(inn[:-1])]) % 11 % 10
+        last_digit = sum([int(v) * mask[i]
+                          for i, v in enumerate(inn[:-1])]) % 11 % 10
         self.assertEqual(last_digit, int(inn[-1]))
 
     def test_legal_ogrn(self):
@@ -39,7 +40,6 @@ class RussianTaxForgeryTestCase(TestCase):
         self.assertEqual(len(legal_ogrn), 13)
         self.assertFalse('0' in legal_ogrn[:-1])
         self.assertEqual(int(legal_ogrn[:-1]) % 11 % 10, int(legal_ogrn[-1]))
-
 
     def test_ogrn(self):
         person_ogrn = russian_tax.ogrn("person")
@@ -58,12 +58,13 @@ class RussianTaxForgeryTestCase(TestCase):
         mask11 = [7, 2, 4, 10, 3, 5, 9, 4, 6, 8]
         mask12 = [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8]
 
-        digit11 = sum([int(v) * mask11[i] for i, v in enumerate(inn[:-2])]) % 11 % 10
+        digit11 = sum([int(v) * mask11[i]
+                       for i, v in enumerate(inn[:-2])]) % 11 % 10
         self.assertEqual(digit11, int(inn[-2]))
 
-        digit12 = sum([int(v) * mask12[i] for i, v in enumerate(inn[:-1])]) % 11 % 10
+        digit12 = sum([int(v) * mask12[i]
+                       for i, v in enumerate(inn[:-1])]) % 11 % 10
         self.assertEqual(digit12, int(inn[-1]))
-
 
     def test_person_ogrn(self):
         person_ogrn = russian_tax.person_ogrn()

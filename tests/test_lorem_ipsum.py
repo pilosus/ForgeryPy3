@@ -24,7 +24,7 @@ class LoremIpsumForgeryTestCase(TestCase):
         result = lorem_ipsum.title()
         assert result[0] in string.ascii_uppercase
         assert len(result.split(' ')) == 4
-        assert result[-1] in ('?.!')
+        assert result[-1] in '?.!'
 
     def test_sentence(self):
         result = lorem_ipsum.sentence()
@@ -112,7 +112,7 @@ class LoremIpsumForgeryTestCase(TestCase):
         self.assertEqual(len(paragraphs.split('|')), 2)
 
         title = lorem_ipsum.text("title")
-        self.assertIn(title[-1], ('?.!'))
+        self.assertIn(title[-1], '?.!')
 
         with self.assertRaises(NameError):
             lorem_ipsum.text(what="no_such_method")

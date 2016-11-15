@@ -43,7 +43,7 @@ class AddressForgeryTestCase(TestCase):
     def test_province_abbrev(self):
         result = address.province_abbrev()
         self.assertTrue(result + '\n' in get_dictionary('province_abbrevs'))
-        
+
     def test_zip_code(self):
         result = address.zip_code()
         assert (re.match(r'[0-9]{5}$', result) is not None or
@@ -51,7 +51,8 @@ class AddressForgeryTestCase(TestCase):
 
     def test_phone(self):
         result = address.phone()
-        assert re.match(r'[0-9]-\([0-9]{3}\)[0-9]{3}-[0-9]{4}$', result) is not None
+        self.assertIsNotNone(re.match(r'[0-9]-\([0-9]{3}\)[0-9]{3}-[0-9]{4}$',
+                                      result))
 
     def test_country(self):
         result = address.country()

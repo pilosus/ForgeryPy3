@@ -23,7 +23,6 @@
 
 import codecs
 from os.path import abspath, dirname, join
-import random
 
 DICTIONARIES_PATH = abspath(join(dirname(__file__), 'dictionaries'))
 

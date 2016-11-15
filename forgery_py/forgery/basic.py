@@ -1,4 +1,31 @@
 # -*- coding: utf-8 -*-
+# MIT License
+#
+# Copyright (c) 2016 Vitaly R. Samigullin
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# -------------------------------------------------------------------------------
+# This software is based on the Tomasz Wójcik's ForgeryPy package.
+# Original license is the following:
+# -------------------------------------------------------------------------------
+#
 # Copyright (C) 2012 by Tomasz Wójcik <labs@tomekwojcik.pl>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,7 +50,8 @@
 
 import random
 import string
-import hashlib, binascii
+import hashlib
+import binascii
 from datetime import datetime
 
 from ..dictionaries_loader import get_dictionary
@@ -77,7 +105,7 @@ def text(length=None, at_least=10, at_most=15, lowercase=True,
 
     result = ''
     try:
-        for i in xrange(0, length):
+        for _ in xrange(0, length):
             result += random.choice(base_string)
     # Python 3 compatibility
     except NameError:
@@ -86,13 +114,16 @@ def text(length=None, at_least=10, at_most=15, lowercase=True,
 
     return result
 
+
 def boolean():
     """Return random boolean."""
     return random.choice(BOOLEAN)
 
+
 def color():
     """Return random color name."""
     return random.choice(get_dictionary('colors')).strip()
+
 
 def encrypt(password='password', salt=None):
     """
@@ -105,17 +136,20 @@ def encrypt(password='password', salt=None):
     binascii.hexlify(dk)
     return binascii.hexlify(dk).decode('utf-8')
 
+
 def frequency():
     """Return random frequency rate."""
     return random.choice(get_dictionary('frequencies')).strip()
 
+
 def number(at_least=0, at_most=10):
     """Return a random number in the range specified."""
     return random.choice(range(at_least, at_most))
-    
+
+
 def password(at_least=6, at_most=12, lowercase=True,
              uppercase=True, digits=True, spaces=False, punctuation=False):
     """Return a random string for use as a password."""
     return text(at_least=at_least, at_most=at_most, lowercase=lowercase,
-                uppercase=uppercase, digits=digits, spaces=spaces, punctuation=punctuation)
-
+                uppercase=uppercase, digits=digits, spaces=spaces,
+                punctuation=punctuation)

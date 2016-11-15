@@ -3,7 +3,7 @@
 import re
 import string
 from unittest import TestCase
-from forgery_py.forgery import email, internet
+from forgery_py.forgery import email
 
 
 class EmailForgeryTestCase(TestCase):
@@ -13,7 +13,6 @@ class EmailForgeryTestCase(TestCase):
 
         email2 = email.address('Vitaly Samigullin')
         self.assertTrue(email2.startswith('vitaly_samigullin'))
-
 
     def test_body(self):
         body1 = email.body(separator='|')
@@ -32,5 +31,4 @@ class EmailForgeryTestCase(TestCase):
         result = email.subject()
         self.assertIn(result[0], string.ascii_uppercase)
         self.assertEqual(len(result.split(' ')), 4)
-        self.assertIn(result[-1], ('?.!'))
-
+        self.assertIn(result[-1], '?.!')

@@ -1,4 +1,31 @@
 # -*- coding: utf-8 -*-
+# MIT License
+#
+# Copyright (c) 2016 Vitaly R. Samigullin
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# -------------------------------------------------------------------------------
+# This software is based on the Tomasz Wójcik's ForgeryPy package.
+# Original license is the following:
+# -------------------------------------------------------------------------------
+#
 # Copyright (C) 2012 by Tomasz Wójcik <labs@tomekwojcik.pl>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -100,12 +127,16 @@ def paragraphs(quantity=2, separator='\n\n', wrap_start='', wrap_end='',
 
     result = []
     try:
-        for i in xrange(0, quantity):
-            result.append(wrap_start + sentences(sentences_quantity) + wrap_end)
+        for _ in xrange(0, quantity):
+            result.append(wrap_start +
+                          sentences(sentences_quantity) +
+                          wrap_end)
     # Python 3 compatibility
     except NameError:
-        for i in range(0, quantity):
-            result.append(wrap_start + sentences(sentences_quantity) + wrap_end)
+        for _ in range(0, quantity):
+            result.append(wrap_start +
+                          sentences(sentences_quantity) +
+                          wrap_end)
 
     if as_list:
         return result
@@ -114,7 +145,9 @@ def paragraphs(quantity=2, separator='\n\n', wrap_start='', wrap_end='',
 
 
 def _to_lower_alpha_only(s):
-    """Remove non alphabetic chars (excl. space), make resulting string lowercase."""
+    """Return a lowercased string with non alphabetic chars removed.
+
+    White spaces are not to be removed."""
     s = re.sub(r'\n', ' ',  s.lower())
     return re.sub(r'[^a-z\s]', '', s)
 
@@ -156,12 +189,13 @@ def text(what="sentence", *args, **kwargs):
         raise NameError('No such method')
 
 
-
 def lorem_ipsum_characters():
     """Return the whole lorem_ipsum dictionary as a lowercase string."""
     return _to_lower_alpha_only(''.join(get_dictionary('lorem_ipsum')))
 
 
 def lorem_ipsum_words():
-    """Return a list of all lowercased words from the lorem_ipsum dictionary."""
+    """Return a list of all lowercased words.
+
+    Words are taken from the `lorem_ipsum dictionary`."""
     return lorem_ipsum_characters().strip().split(' ')

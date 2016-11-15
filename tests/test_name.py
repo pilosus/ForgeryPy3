@@ -54,6 +54,7 @@ class NameForgeryTestCase(TestCase):
 
     def test_job_title(self):
         job_title = name.job_title()
-        titles = "|".join([i.strip() for i in get_dictionary('job_title_suffixes')])
+        titles = "|".join([i.strip()
+                           for i in get_dictionary('job_title_suffixes')])
         if not re.search(r'\s({0})$'.format(titles), job_title):
             self.assertIn(job_title + '\n', get_dictionary('job_titles'))

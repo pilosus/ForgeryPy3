@@ -56,20 +56,27 @@ class BasicForgeryTestCase(TestCase):
     def test_boolean(self):
         result = basic.boolean()
         self.assertTrue(result in [True, False])
-        self.assertFalse(result in ['true', 'false', 'True', 'False', 'yes', 'no'])
+        self.assertFalse(result in
+                         ['true', 'false', 'True', 'False', 'yes', 'no'])
 
     def test_color(self):
         result = basic.color()
         self.assertTrue(result + '\n' in get_dictionary('colors'))
-        
+
     def test_encrypt(self):
-        salt = datetime.datetime(2007, 12, 6, 16, 29, 43, 79043)
-        result = basic.encrypt()
-        self.assertTrue(len(result) == 40)
-        self.assertTrue(result != basic.encrypt())
-        self.assertTrue(result != basic.encrypt('password',
-                                                str(datetime.datetime.utcnow())))
-        
+        salt = str(datetime.datetime(2007, 12, 6, 16, 29, 43, 79043))
+        encrypt1 = basic.encrypt()
+        self.assertTrue(len(encrypt1) == 40)
+        self.assertTrue(encrypt1 != basic.encrypt())
+        self.assertTrue(encrypt1 !=
+                        basic.encrypt('password',
+                                      str(datetime.datetime.utcnow())))
+        encrypt2 = basic.encrypt(salt=salt)
+        self.assertTrue(len(encrypt2) == 40)
+        self.assertTrue(encrypt2 !=
+                        basic.encrypt('password',
+                                      str(datetime.datetime.utcnow())))
+
     def test_frequency(self):
         result = basic.frequency()
         self.assertTrue(result + '\n' in get_dictionary('frequencies'))
@@ -100,5 +107,6 @@ class BasicForgeryTestCase(TestCase):
         password5 = basic.text(at_least=32, at_most=32, lowercase=False,
                                uppercase=False, digits=False, spaces=False,
                                punctuation=True)
-        self.assertTrue(re.match(r"""[!"#$%&\\'()*+,-\.\/:;<=>?@\[\]^_`{|}~]{32}$""",
-                                 password5) is not None)
+        self.assertTrue(
+            re.match(r"""[!"#$%&\\'()*+,-\.\/:;<=>?@\[\]^_`{|}~]{32}$""",
+                     password5) is not None)
