@@ -6,30 +6,54 @@
 ForgeryPy documentation
 =======================
 
-ForgeryPy is an easy to use forged data generator. It's a (somewhat incomplete)
-port of `forgery Ruby gem <http://rubygems.org/gems/forgery>`_.
+ForgeryPy3 is a fake data generator fully compatible with Python 2 and 3.
+
+ForgeryPy3 solves the problem of **generating simple, random, yet
+meaningful data for testing and development**.
+
+ForgeryPy3 is a fork of Tomek Wójcik's `ForgeryPy`_ project, which is,
+in turn, based on the Ruby `forgery`_ gem.
+
+ForgeryPy3 takes up where ForgeryPy left off, reflecting the current
+state of the original ``forgery`` package, carefully following its
+API.
 
 
-Example usage
--------------
+Using
+=====
 
->>> import forgery_py
->>> forgery_py.address.street_address()
-u'4358 Shopko Junction'
->>> forgery_py.basic.hex_color()
-'3F0A59'
->>> forgery_py.currency.description()
-u'Slovenia Tolars'
->>> forgery_py.date.date()
-datetime.date(2012, 7, 27)
->>> forgery_py.internet.email_address()
-u'brian@zazio.mil'
->>> forgery_py.lorem_ipsum.title()
-u'Pretium nam rhoncus ultrices!'
->>> forgery_py.name.full_name()
-u'Mary Peters'
->>> forgery_py.personal.language()
-u'Hungarian'
+Basic usage is easy and straightforward. Fire up your Python REPL and
+try::
+
+  >>> import forgery_py
+  >>> forgery_py.address.street_address()
+  '4358 Shopko Junction'
+  >>> forgery_py.basic.hex_color()
+  '3F0A59'
+  >>> forgery_py.credit_card.type()
+  'Visa
+  >>> forgery_py.currency.description()
+  'Slovenia Tolars'
+  >>> forgery_py.date.date()
+  datetime.date(2012, 7, 27)
+  >>> forgery_py.email.address()
+  'debra@tavu.edu
+  >>> forgery_py.internet.ip_v4()
+  '150.64.188.100''
+  >>> forgery_py.lorem_ipsum.title()
+  'Pretium nam rhoncus ultrices!'
+  >>> forgery_py.monetary.money()
+  '$4.50'
+  >>> forgery_py.name.full_name()
+  'Mary Peters'
+  >>> forgery_py.personal.language()
+  'Hungarian'
+  >>> forgery_py.russian_tax.person_inn()
+  '768974545606'
+  >>> forgery_py.time.zone()
+  'Melbourne'
+
+
 
 
 Modules
@@ -52,12 +76,32 @@ Modules
    time
 
 
-Source code and license
-=======================
+Source code
+===========
 
-Much like the original Ruby gem this module is licensed under MIT License.
+Source code is available on `GitHub`_.
 
-Source code is available `on GitHub <https://github.com/pilosus/ForgeryPy>`_.
+
+Credits
+=======
+
+The project is based on `ForgeryPy`_ package by Tomek Wójcik.
+
+ForgeryPy, in its turn, gets use of dictionaries from the original
+Ruby `forgery`_ gem.
+
+
+License
+=======
+
+The project is sublincesed under MIT License. The original ForgeryPy
+lincensed under custom MIT-style license. For further information see
+``LINCENSE``.
+
+.. _ForgeryPy: https://github.com/tomekwojcik/ForgeryPy
+.. _forgery: https://github.com/sevenwire/forgery
+.. _documentation: https://pilosus.github.io/ForgeryPy3/
+.. _GitHub: https://github.com/pilosus/ForgeryPy3
 
 
 Indices and tables

@@ -52,7 +52,7 @@ import random
 
 __all__ = [
     'latitude', 'latitude_degrees', 'latitude_direction', 'latitude_minutes',
-    'latitude_seconds', 'longitude', 'longitude_degrees' 'longitude_direction',
+    'latitude_seconds', 'longitude', 'longitude_degrees', 'longitude_direction',
     'longitude_minutes', 'longitude_seconds'
 ]
 

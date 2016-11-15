@@ -257,4 +257,4 @@ lincensed under custom MIT-style license. For further information see
 
 .. _ForgeryPy: https://github.com/tomekwojcik/ForgeryPy
 .. _forgery: https://github.com/sevenwire/forgery
-.. _documentation: https://pilosus.github.io/ForgeryPy3
+.. _documentation: https://pilosus.github.io/ForgeryPy3/
