@@ -48,3 +48,9 @@ class InternetForgeryTestCase(TestCase):
 
         for block in result:
             assert int(block) in range(0, 256)
+
+    def test_ip_v6(self):
+        ipv6 = internet.ip_v6().split(':')
+        magnitude = 16 ** 4
+        self.assertTrue(len(ipv6), 8)
+        self.assertLessEqual(sum([int(i, 16) for i in ipv6]) / 8, magnitude)

@@ -56,13 +56,14 @@ from forgery_py.forgery import lorem_ipsum
 
 __all__ = [
     'user_name', 'top_level_domain', 'domain_name',
-    'email_address', 'email_subject', 'cctld', 'ip_v4'
+    'email_address', 'email_subject', 'cctld', 'ip_v4',
+    'ip_v6'
 ]
 
 
 def user_name(with_num=False):
     """
-    Random user name.
+    Return a random user name.
 
     Basically it's lowercased result of
     :py:func:`~forgery_py.forgery.name.first_name()` with a number appended
@@ -76,13 +77,13 @@ def user_name(with_num=False):
 
 
 def top_level_domain():
-    """Random TLD."""
+    """Return a random top-level domain name."""
     return random.choice(get_dictionary('top_level_domains')).strip()
 
 
 def domain_name():
     """
-    Random domain name.
+    Return a random domain name.
 
     Lowercased result of :py:func:`~forgery_py.forgery.name.company_name()`
     plus :py:func:`~top_level_domain()`.
@@ -95,7 +96,7 @@ def domain_name():
 
 def email_address(user=None):
     """
-    Random e-mail address in a hopefully imaginary domain.
+    Return random e-mail address in a hopefully imaginary domain.
 
     If `user` is ``None`` :py:func:`~user_name()` will be used. Otherwise it
     will be lowercased and will have spaces replaced with ``_``.
@@ -116,11 +117,30 @@ def email_subject(words_quantity=4):
 
 
 def cctld():
-    """Random country code TLD."""
+    """Return a random country code TLD."""
     return random.choice(get_dictionary('country_code_top_level_domains')).\
         strip()
 
 
 def ip_v4():
-    """Random IPv4 address."""
+    """Return a random IPv4 address."""
     return '.'.join([str(random.randint(0, 255)) for _ in range(0, 4)])
+
+
+def _py2_ip_v6():
+    """Return a random IPv6 address for Python versions prior to 3.3."""
+    # 4-digit hexadecimal numbers
+    magnitude = 16 ** 4
+    # credits: http://stackoverflow.com/a/7660959/4241180
+    return ":".join(("%x" % random.randint(0, magnitude) for _ in range(8)))
+
+
+def ip_v6():
+    """Return a random IPv6 address."""
+    try:
+        # module was introduced in Python 3.3
+        import ipaddress
+    except ImportError:
+        return _py2_ip_v6()
+    # credits: http://stackoverflow.com/a/2811349/4241180
+    return str(ipaddress.IPv6Address(random.randint(0, 2**128)))

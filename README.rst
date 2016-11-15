@@ -1,38 +1,58 @@
-ForgeryPy
-=========
+ForgeryPy3
+==========
 
-ForgeryPy is an easy to use forged data generator. It's a (somewhat incomplete)
-port of ``forgery`` Ruby gem.
+ForgeryPy3 is a fake data generator fully compatible with Python 2 and 3.
 
-This is a fork of Tomek Wójcik's `original ForgeryPy port
-<https://github.com/tomekwojcik/ForgeryPy>`_, fixed to work under
-``Python 3`` and extended with the new dictionaries from the original
-Ruby gem ``forgery``.
+ForgeryPy3 solves the problem of **generating simple, random, yet
+meaningful data for testing and development**.
 
+ForgeryPy3 is a fork of Tomek Wójcik's `ForgeryPy`_ project, which is,
+in turn, based on the Ruby `forgery`_ gem.
 
-Example usage
--------------
-
->>> import forgery_py
->>> forgery_py.address.street_address()
-'4358 Shopko Junction'
->>> forgery_py.basic.hex_color()
-'3F0A59'
->>> forgery_py.currency.description()
-'Slovenia Tolars'
->>> forgery_py.date.date()
-datetime.date(2012, 7, 27)
->>> forgery_py.internet.email_address()
-'brian@zazio.mil'
->>> forgery_py.lorem_ipsum.title()
-'Pretium nam rhoncus ultrices!'
->>> forgery_py.name.full_name()
-'Mary Peters'
->>> forgery_py.personal.language()
-'Hungarian'
+ForgeryPy3 takes up where ForgeryPy left off, reflecting the current
+state of the original ``forgery`` package, carefully following its
+API.
 
 
-Full List of methods
+Using
+-----
+
+Basic usage is easy and straightforward. Fire up your Python REPL and
+try::
+
+  >>> import forgery_py
+  >>> forgery_py.address.street_address()
+  '4358 Shopko Junction'
+  >>> forgery_py.basic.hex_color()
+  '3F0A59'
+  >>> forgery_py.credit_card.type()
+  'Visa
+  >>> forgery_py.currency.description()
+  'Slovenia Tolars'
+  >>> forgery_py.date.date()
+  datetime.date(2012, 7, 27)
+  >>> forgery_py.email.address()
+  'debra@tavu.edu
+  >>> forgery_py.internet.ip_v4()
+  '150.64.188.100''
+  >>> forgery_py.lorem_ipsum.title()
+  'Pretium nam rhoncus ultrices!'
+  >>> forgery_py.monetary.money()
+  '$4.50'
+  >>> forgery_py.name.full_name()
+  'Mary Peters'
+  >>> forgery_py.personal.language()
+  'Hungarian'
+  >>> forgery_py.russian_tax.person_inn()
+  '768974545606'
+  >>> forgery_py.time.zone()
+  'Melbourne'
+
+
+You can find further information in the project's `documentation`_.
+
+
+Full List of Methods
 --------------------
 
 +------------------------------------------------------+-------------------------------------------+
@@ -219,23 +239,22 @@ Full List of methods
 | forgery_py.russian_tax.person_ogrn()                 | 195478617554621                           |
 +------------------------------------------------------+-------------------------------------------+
 
-TODO
-----
-
-+------------------------------------------------------+-------------------------------------------+
-| Method Missed                                        | Example Output                            |
-+======================================================+===========================================+
-| ...                                                  | ...                                       |
-+------------------------------------------------------+-------------------------------------------+
-
-
 Credits
 -------
 
-The project uses dictionary files from `forgery Ruby gem <https://github.com/sevenwire/forgery>`_.
+The project is based on `ForgeryPy`_ package by Tomek Wójcik.
+
+ForgeryPy, in its turn, gets use of dictionaries from the original
+Ruby `forgery`_ gem.
 
 
 License
 -------
 
-MIT-style, see LICENSE
+The project is sublincesed under MIT License. The original ForgeryPy
+lincensed under custom MIT-style license. For further information see
+``LINCENSE``.
+
+.. _ForgeryPy: https://github.com/tomekwojcik/ForgeryPy
+.. _forgery: https://github.com/sevenwire/forgery
+.. _documentation: https://pilosus.github.io/ForgeryPy3
