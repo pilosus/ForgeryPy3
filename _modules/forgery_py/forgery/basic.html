@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>forgery_py.forgery.basic &#8212; ForgeryPy3 0.3 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="top" title="ForgeryPy3 0.3 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ForgeryPy3 0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for forgery_py.forgery.basic</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2016 Vitaly R. Samigullin</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+<span class="c1">#</span>
+<span class="c1"># -------------------------------------------------------------------------------</span>
+<span class="c1"># This software is based on the Tomasz Wójcik&#39;s ForgeryPy package.</span>
+<span class="c1"># Original license is the following:</span>
+<span class="c1"># -------------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2012 by Tomasz Wójcik &lt;labs@tomekwojcik.pl&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="c1"># THE SOFTWARE.</span>
+
+<span class="sd">&quot;&quot;&quot;Generate misc random data.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">..dictionaries_loader</span> <span class="k">import</span> <span class="n">get_dictionary</span>
+
+<span class="n">HEX_DIGITS</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">hexdigits</span><span class="p">[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">BOOLEAN</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hex_color&#39;</span><span class="p">,</span> <span class="s1">&#39;hex_color_short&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span> <span class="s1">&#39;encrypt&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;frequency&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="hex_color"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.hex_color">[docs]</a><span class="k">def</span> <span class="nf">hex_color</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return random HEX color.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">HEX_DIGITS</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="hex_color_short"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.hex_color_short">[docs]</a><span class="k">def</span> <span class="nf">hex_color_short</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return random short HEX color (e.g. `FFF` color).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">HEX_DIGITS</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="text"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.text">[docs]</a><span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">at_least</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">at_most</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+         <span class="n">uppercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spaces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return random text.</span>
+
+<span class="sd">    If `length` is present the text will be exactly this chars long. Else the</span>
+<span class="sd">    text will be something between `at_least` and `at_most` chars long.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">base_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">lowercase</span><span class="p">:</span>
+        <span class="n">base_string</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
+
+    <span class="k">if</span> <span class="n">uppercase</span><span class="p">:</span>
+        <span class="n">base_string</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span>
+
+    <span class="k">if</span> <span class="n">digits</span><span class="p">:</span>
+        <span class="n">base_string</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+
+    <span class="k">if</span> <span class="n">spaces</span><span class="p">:</span>
+        <span class="n">base_string</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span>
+
+    <span class="k">if</span> <span class="n">punctuation</span><span class="p">:</span>
+        <span class="n">base_string</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">base_string</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">length</span><span class="p">:</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">at_least</span><span class="p">,</span> <span class="n">at_most</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">base_string</span><span class="p">)</span>
+    <span class="c1"># Python 3 compatibility</span>
+    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">base_string</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="boolean"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.boolean">[docs]</a><span class="k">def</span> <span class="nf">boolean</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return random boolean.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">BOOLEAN</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="color"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.color">[docs]</a><span class="k">def</span> <span class="nf">color</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return random color name.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">get_dictionary</span><span class="p">(</span><span class="s1">&#39;colors&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="encrypt"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.encrypt">[docs]</a><span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="n">salt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return SHA1 hexdigest of a password (optionally salted with a string).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">salt</span><span class="p">:</span>
+        <span class="n">salt</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+
+    <span class="n">dk</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">pbkdf2_hmac</span><span class="p">(</span><span class="s1">&#39;sha1&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">salt</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="mi">100000</span><span class="p">)</span>
+    <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">dk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">dk</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="frequency"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.frequency">[docs]</a><span class="k">def</span> <span class="nf">frequency</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return random frequency rate.</span>
+
+<span class="sd">    Frequency rate is taken from the `frequencies` dictionary.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">get_dictionary</span><span class="p">(</span><span class="s1">&#39;frequencies&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="number"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.number">[docs]</a><span class="k">def</span> <span class="nf">number</span><span class="p">(</span><span class="n">at_least</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">at_most</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a random number in the range specified.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">at_least</span><span class="p">,</span> <span class="n">at_most</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="password"><a class="viewcode-back" href="../../../basic.html#forgery_py.forgery.basic.password">[docs]</a><span class="k">def</span> <span class="nf">password</span><span class="p">(</span><span class="n">at_least</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">at_most</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">uppercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spaces</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a random string for use as a password.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">text</span><span class="p">(</span><span class="n">at_least</span><span class="o">=</span><span class="n">at_least</span><span class="p">,</span> <span class="n">at_most</span><span class="o">=</span><span class="n">at_most</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">,</span>
+                <span class="n">uppercase</span><span class="o">=</span><span class="n">uppercase</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="n">digits</span><span class="p">,</span> <span class="n">spaces</span><span class="o">=</span><span class="n">spaces</span><span class="p">,</span>
+                <span class="n">punctuation</span><span class="o">=</span><span class="n">punctuation</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ForgeryPy3 0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012, BTHLabs; 2016, Vitaly R. Samigullin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

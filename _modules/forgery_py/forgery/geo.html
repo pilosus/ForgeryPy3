@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>forgery_py.forgery.geo &#8212; ForgeryPy3 0.3 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="top" title="ForgeryPy3 0.3 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ForgeryPy3 0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for forgery_py.forgery.geo</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2016 Vitaly R. Samigullin</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+<span class="c1">#</span>
+<span class="c1"># -------------------------------------------------------------------------------</span>
+<span class="c1"># This software is based on the Tomasz Wójcik&#39;s ForgeryPy package.</span>
+<span class="c1"># Original license is the following:</span>
+<span class="c1"># -------------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2012 by Tomasz Wójcik &lt;labs@tomekwojcik.pl&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="c1"># THE SOFTWARE.</span>
+
+<span class="sd">&quot;&quot;&quot;Generate random geo data.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude_degrees&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude_minutes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;latitude_seconds&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude_degrees&#39;</span> <span class="s1">&#39;longitude_direction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;longitude_minutes&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude_seconds&#39;</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="latitude"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.latitude">[docs]</a><span class="k">def</span> <span class="nf">latitude</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random latitude in the range of [-90.0, +90.0].</span>
+
+<span class="sd">    Latitude is a float.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">180.0</span> <span class="o">-</span> <span class="mf">90.0</span></div>
+
+
+<div class="viewcode-block" id="latitude_degrees"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.latitude_degrees">[docs]</a><span class="k">def</span> <span class="nf">latitude_degrees</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random latitude&#39;s degrees component in the range [-180, +180].</span>
+
+<span class="sd">    Latitude&#39;s degree is an int.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span> <span class="o">-</span> <span class="mi">180</span></div>
+
+
+<div class="viewcode-block" id="latitude_direction"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.latitude_direction">[docs]</a><span class="k">def</span> <span class="nf">latitude_direction</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random a latitude&#39;s direction component.</span>
+
+<span class="sd">    Latitude&#39;s direction is denoted as either &quot;N&quot; (north) or &quot;S&quot; (south).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="latitude_minutes"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.latitude_minutes">[docs]</a><span class="k">def</span> <span class="nf">latitude_minutes</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random latitude&#39;s minutes component in the range [0, 60).</span>
+
+<span class="sd">    Latitude&#39;s minutes is an int.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="latitude_seconds"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.latitude_seconds">[docs]</a><span class="k">def</span> <span class="nf">latitude_seconds</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random latitude&#39;s seconds component in the range [0, 60).</span>
+
+<span class="sd">    Latitude&#39;s seconds is an int.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="longitude"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.longitude">[docs]</a><span class="k">def</span> <span class="nf">longitude</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random longitude in the range [-180.0, +180.0].</span>
+
+<span class="sd">    Longitude is a float.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">360.0</span> <span class="o">-</span> <span class="mf">180.0</span></div>
+
+
+<span class="k">def</span> <span class="nf">longitude_degrees</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random longitude&#39;s degrees component in the range [-180, +180].</span>
+
+<span class="sd">    Longitude&#39;s degrees is an int.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">latitude_degrees</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">longitude_direction</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random longitude&#39;s direction component.</span>
+
+<span class="sd">    Longitude&#39;s direction is denoted as either &quot;E&quot; (east) or &quot;W&quot; (west).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="longitude_minutes"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.longitude_minutes">[docs]</a><span class="k">def</span> <span class="nf">longitude_minutes</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random longitude&#39;s minutes component in the range [0, 60).</span>
+
+<span class="sd">    longitude&#39;s minutes is an int.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">latitude_minutes</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="longitude_seconds"><a class="viewcode-back" href="../../../geo.html#forgery_py.forgery.geo.longitude_seconds">[docs]</a><span class="k">def</span> <span class="nf">longitude_seconds</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a random longitude&#39;s seconds component in the range [0, 60).</span>
+
+<span class="sd">    Longitude&#39;s seconds is an int.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">latitude_seconds</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ForgeryPy3 0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012, BTHLabs; 2016, Vitaly R. Samigullin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

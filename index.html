@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ForgeryPy3 documentation &#8212; ForgeryPy3 0.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ForgeryPy3 0.3 documentation" href="#" />
+    <link rel="next" title="address Module" href="address.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="address.html" title="address Module"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">ForgeryPy3 0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="forgerypy3-documentation">
+<h1>ForgeryPy3 documentation<a class="headerlink" href="#forgerypy3-documentation" title="Permalink to this headline">¶</a></h1>
+<p>ForgeryPy3 is a fake data generator fully compatible with Python 2 and 3.</p>
+<p>ForgeryPy3 solves the problem of <strong>generating simple, random, yet
+meaningful data for testing and development</strong>.</p>
+<p>ForgeryPy3 is a fork of Tomek Wójcik&#8217;s <a class="reference external" href="https://github.com/tomekwojcik/ForgeryPy">ForgeryPy</a> project, which is,
+in turn, based on the Ruby <a class="reference external" href="https://github.com/sevenwire/forgery">forgery</a> gem.</p>
+<p>ForgeryPy3 takes up where ForgeryPy left off, reflecting the current
+state of the original <code class="docutils literal"><span class="pre">forgery</span></code> package, carefully following its
+API.</p>
+</div>
+<div class="section" id="using">
+<h1>Using<a class="headerlink" href="#using" title="Permalink to this headline">¶</a></h1>
+<p>Basic usage is easy and straightforward. Fire up your Python REPL and
+try:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">forgery_py</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">street_address</span><span class="p">()</span>
+<span class="go">&#39;4358 Shopko Junction&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">basic</span><span class="o">.</span><span class="n">hex_color</span><span class="p">()</span>
+<span class="go">&#39;3F0A59&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">credit_card</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<span class="go">&#39;Visa</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">currency</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+<span class="go">&#39;Slovenia Tolars&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+<span class="go">datetime.date(2012, 7, 27)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">address</span><span class="p">()</span>
+<span class="go">&#39;debra@tavu.edu</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">internet</span><span class="o">.</span><span class="n">ip_v4</span><span class="p">()</span>
+<span class="go">&#39;150.64.188.100&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">lorem_ipsum</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="go">&#39;Pretium nam rhoncus ultrices!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">monetary</span><span class="o">.</span><span class="n">money</span><span class="p">()</span>
+<span class="go">&#39;$4.50&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">full_name</span><span class="p">()</span>
+<span class="go">&#39;Mary Peters&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">personal</span><span class="o">.</span><span class="n">language</span><span class="p">()</span>
+<span class="go">&#39;Hungarian&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">russian_tax</span><span class="o">.</span><span class="n">person_inn</span><span class="p">()</span>
+<span class="go">&#39;768974545606&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgery_py</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">zone</span><span class="p">()</span>
+<span class="go">&#39;Melbourne&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="address.html"><code class="docutils literal"><span class="pre">address</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html"><code class="docutils literal"><span class="pre">basic</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credit_card.html"><code class="docutils literal"><span class="pre">credit_card</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="currency.html"><code class="docutils literal"><span class="pre">currency</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="date.html"><code class="docutils literal"><span class="pre">date</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.html"><code class="docutils literal"><span class="pre">email</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geo.html"><code class="docutils literal"><span class="pre">geo</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internet.html"><code class="docutils literal"><span class="pre">internet</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorem_ipsum.html"><code class="docutils literal"><span class="pre">lorem_ipsum</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="name.html"><code class="docutils literal"><span class="pre">name</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="personal.html"><code class="docutils literal"><span class="pre">personal</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="russian_tax.html"><code class="docutils literal"><span class="pre">russian_tax</span></code> Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time.html"><code class="docutils literal"><span class="pre">time</span></code> Module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="credits">
+<h1>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h1>
+<p>The project is based on <a class="reference external" href="https://github.com/tomekwojcik/ForgeryPy">ForgeryPy</a> package by Tomek Wójcik.</p>
+<p>ForgeryPy, in its turn, gets use of dictionaries from the original
+Ruby <a class="reference external" href="https://github.com/sevenwire/forgery">forgery</a> gem.</p>
+</div>
+<div class="section" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>The project is sublincesed under MIT License. The original ForgeryPy
+lincensed under custom MIT-style license.</p>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ForgeryPy3 documentation</a></li>
+<li><a class="reference internal" href="#using">Using</a></li>
+<li><a class="reference internal" href="#modules">Modules</a></li>
+<li><a class="reference internal" href="#credits">Credits</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="address.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">address</span></code> Module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="address.html" title="address Module"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">ForgeryPy3 0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012, BTHLabs; 2016, Vitaly R. Samigullin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

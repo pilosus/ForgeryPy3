@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>geo Module &#8212; ForgeryPy3 0.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ForgeryPy3 0.3 documentation" href="index.html" />
+    <link rel="next" title="internet Module" href="internet.html" />
+    <link rel="prev" title="email Module" href="email.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="internet.html" title="internet Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="email.html" title="email Module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ForgeryPy3 0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="geo-module">
+<h1><code class="xref py py-mod docutils literal"><span class="pre">geo</span></code> Module<a class="headerlink" href="#geo-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-forgery_py.forgery.geo"></span><p>Generate random geo data.</p>
+<dl class="function">
+<dt id="forgery_py.forgery.geo.latitude">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">latitude</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#latitude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.latitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random latitude in the range of [-90.0, +90.0].</p>
+<p>Latitude is a float.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.latitude_degrees">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">latitude_degrees</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#latitude_degrees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.latitude_degrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random latitude&#8217;s degrees component in the range [-180, +180].</p>
+<p>Latitude&#8217;s degree is an int.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.latitude_direction">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">latitude_direction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#latitude_direction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.latitude_direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random a latitude&#8217;s direction component.</p>
+<p>Latitude&#8217;s direction is denoted as either &#8220;N&#8221; (north) or &#8220;S&#8221; (south).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.latitude_minutes">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">latitude_minutes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#latitude_minutes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.latitude_minutes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random latitude&#8217;s minutes component in the range [0, 60).</p>
+<p>Latitude&#8217;s minutes is an int.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.latitude_seconds">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">latitude_seconds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#latitude_seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.latitude_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random latitude&#8217;s seconds component in the range [0, 60).</p>
+<p>Latitude&#8217;s seconds is an int.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.longitude">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">longitude</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#longitude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.longitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random longitude in the range [-180.0, +180.0].</p>
+<p>Longitude is a float.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.longitude_minutes">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">longitude_minutes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#longitude_minutes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.longitude_minutes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random longitude&#8217;s minutes component in the range [0, 60).</p>
+<p>longitude&#8217;s minutes is an int.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.geo.longitude_seconds">
+<code class="descclassname">forgery_py.forgery.geo.</code><code class="descname">longitude_seconds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/geo.html#longitude_seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.geo.longitude_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random longitude&#8217;s seconds component in the range [0, 60).</p>
+<p>Longitude&#8217;s seconds is an int.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="email.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">email</span></code> Module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="internet.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">internet</span></code> Module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/geo.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="internet.html" title="internet Module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="email.html" title="email Module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ForgeryPy3 0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012, BTHLabs; 2016, Vitaly R. Samigullin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>basic Module &#8212; ForgeryPy3 0.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ForgeryPy3 0.3 documentation" href="index.html" />
+    <link rel="next" title="credit_card Module" href="credit_card.html" />
+    <link rel="prev" title="address Module" href="address.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="credit_card.html" title="credit_card Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="address.html" title="address Module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ForgeryPy3 0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-forgery_py.forgery.basic">
+<span id="basic-module"></span><h1><code class="xref py py-mod docutils literal"><span class="pre">basic</span></code> Module<a class="headerlink" href="#module-forgery_py.forgery.basic" title="Permalink to this headline">¶</a></h1>
+<p>Generate misc random data.</p>
+<dl class="function">
+<dt id="forgery_py.forgery.basic.hex_color">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">hex_color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#hex_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.hex_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random HEX color.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.hex_color_short">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">hex_color_short</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#hex_color_short"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.hex_color_short" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random short HEX color (e.g. <cite>FFF</cite> color).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.text">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">text</code><span class="sig-paren">(</span><em>length=None</em>, <em>at_least=10</em>, <em>at_most=15</em>, <em>lowercase=True</em>, <em>uppercase=True</em>, <em>digits=True</em>, <em>spaces=True</em>, <em>punctuation=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random text.</p>
+<p>If <cite>length</cite> is present the text will be exactly this chars long. Else the
+text will be something between <cite>at_least</cite> and <cite>at_most</cite> chars long.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.boolean">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">boolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#boolean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random boolean.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.encrypt">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">encrypt</code><span class="sig-paren">(</span><em>password='password'</em>, <em>salt=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#encrypt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return SHA1 hexdigest of a password (optionally salted with a string).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.frequency">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">frequency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#frequency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random frequency rate.</p>
+<p>Frequency rate is taken from the <cite>frequencies</cite> dictionary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.number">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">number</code><span class="sig-paren">(</span><em>at_least=0</em>, <em>at_most=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random number in the range specified.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.password">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">password</code><span class="sig-paren">(</span><em>at_least=6</em>, <em>at_most=12</em>, <em>lowercase=True</em>, <em>uppercase=True</em>, <em>digits=True</em>, <em>spaces=False</em>, <em>punctuation=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random string for use as a password.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="forgery_py.forgery.basic.color">
+<code class="descclassname">forgery_py.forgery.basic.</code><code class="descname">color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/forgery_py/forgery/basic.html#color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forgery_py.forgery.basic.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random color name.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="address.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">address</span></code> Module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="credit_card.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">credit_card</span></code> Module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basic.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="credit_card.html" title="credit_card Module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="address.html" title="address Module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ForgeryPy3 0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012, BTHLabs; 2016, Vitaly R. Samigullin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>
