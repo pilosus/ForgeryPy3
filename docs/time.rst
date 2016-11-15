@@ -1,5 +1,5 @@
 :mod:`time` Module
-======================
+==================
 
 .. automodule:: forgery_py.forgery.time
     :members:
