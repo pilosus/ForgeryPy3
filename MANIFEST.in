@@ -1,5 +1,6 @@
 include README.rst
 include LICENSE
-recursive-include docs
-recursive-include tests
-recursive-include forgery_py/dictionaries
+recursive-include docs *.rst *.py Makefile make.bat .placeholder
+prune docs/_build
+recursive-include tests *.py
+recursive-include forgery_py/dictionaries *
