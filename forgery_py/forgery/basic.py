@@ -118,7 +118,7 @@ def encrypt(password='password', salt=None):
         # see https://pymotw.com/2/hashlib/
         # see https://docs.python.org/release/2.5/lib/module-hashlib.html
         dk = hashlib.sha1()
-        dk.update(password).hexdigest()
+        dk.update(password.encode()).hexdigest()
     binascii.hexlify(dk)
     return binascii.hexlify(dk).decode('utf-8')
 
