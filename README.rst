@@ -1,6 +1,9 @@
 ForgeryPy3
 ==========
 
+.. image:: https://travis-ci.org/pilosus/ForgeryPy3.svg?branch=master
+    :target: https://travis-ci.org/pilosus/ForgeryPy3
+
 ForgeryPy3 is a fake data generator fully compatible with Python 2 and 3.
 
 ForgeryPy3 solves the problem of **generating simple, random, yet
