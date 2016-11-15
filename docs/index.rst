@@ -94,8 +94,7 @@ Ruby `forgery`_ gem.
 License
 =======
 
-The project is sublincesed under MIT License. The original ForgeryPy
-lincensed under custom MIT-style license. For further information see
+The project is licensed under MIT License. For further information see
 ``LINCENSE``.
 
 .. _ForgeryPy: https://github.com/tomekwojcik/ForgeryPy

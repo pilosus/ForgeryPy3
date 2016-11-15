@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# MIT License
+#
+# Copyright (c) 2016 Vitaly R. Samigullin
 # Copyright (C) 2012 by Tomasz Wójcik <labs@tomekwojcik.pl>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
