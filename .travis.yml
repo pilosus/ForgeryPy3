@@ -17,3 +17,8 @@ python:
 
 ### command to run tests
 script: nosetests
+
+### test coverage for code climate
+addons:
+    code_climate:
+        repo_token: 0001d772a21662d34637fc5e6be57366c34caef0e5fd6922960cc9689c58d4b6
