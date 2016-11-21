@@ -25,7 +25,7 @@
 
 """Generate random date-related data."""
 
-import datetime
+import datetime as dt
 import random
 
 __all__ = ['day_of_week', 'month', 'year', 'day', 'date']
@@ -84,7 +84,7 @@ def _delta(past=False, min_delta=0, max_delta=20):
 
 def year(past=False, min_delta=0, max_delta=20):
     """Return a random year."""
-    return datetime.date.today().year + _delta(past, min_delta, max_delta)
+    return dt.date.today().year + _delta(past, min_delta, max_delta)
 
 
 def day(month_length=31):
@@ -93,6 +93,12 @@ def day(month_length=31):
 
 
 def date(past=False, min_delta=0, max_delta=20):
-    """Return a random `datetime.date` object. Delta args are days."""
-    timedelta = datetime.timedelta(days=_delta(past, min_delta, max_delta))
-    return datetime.date.today() + timedelta
+    """Return a random `dt.date` object. Delta args are days."""
+    timedelta = dt.timedelta(days=_delta(past, min_delta, max_delta))
+    return dt.date.today() + timedelta
+
+
+def datetime(past=False, min_delta=0, max_delta=20):
+    """Return a random `dt.dt` object. Delta args are days."""
+    timedelta = dt.timedelta(days=_delta(past, min_delta, max_delta))
+    return dt.datetime.today() + timedelta
