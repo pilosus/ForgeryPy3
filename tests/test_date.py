@@ -48,3 +48,12 @@ class DateForgeryTestCase(TestCase):
 
         result = date.date(past=True)
         assert result < today
+
+    def test_datetime(self):
+        today = datetime.datetime.today()
+
+        result = date.datetime()
+        assert result > today
+
+        result = date.datetime(past=True)
+        assert result < today

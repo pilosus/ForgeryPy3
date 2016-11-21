@@ -31,5 +31,5 @@ __all__ = ['zone']
 
 
 def zone():
-    """Return a random color name."""
+    """Return a random timezone."""
     return random.choice(get_dictionary('zones')).strip()
