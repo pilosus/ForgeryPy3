@@ -49,7 +49,7 @@
 import codecs
 import distutils.core
 
-version = '0.3'
+version = '0.3.1'
 
 desc_file = codecs.open('README.rst', 'r', 'utf-8')
 long_description = desc_file.read()
