@@ -31,11 +31,10 @@ __all__ = ['money', 'formatted_money']
 
 
 def money(min=0, max=10):
-    """Return a random sum of money with a dollar sign as a prefix."""
-    return "$%1.2f" % float(formatted_money(min=min, max=max))
-
-
-def formatted_money(min=0, max=10):
     """Return a str of decimal with two digits after a decimal mark."""
     value = random.choice(range(min * 100, max * 100))
     return "%1.2f" % (float(value) / 100)
+
+def formatted_money(min=0, max=10):
+    """Return a random sum of money with a dollar sign as a prefix."""
+    return "$%1.2f" % float(money(min=min, max=max))
