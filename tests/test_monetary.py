@@ -6,10 +6,10 @@ from forgery_py.forgery import monetary
 
 class MonetaryForgeryTestCase(TestCase):
     def test_money(self):
-        dollars = monetary.money()
-        self.assertTrue(dollars.startswith('$'))
+        money = monetary.money()
+        self.assertTrue(0 <= float(money) < 1000)
+        self.assertEqual(len(money.split('.')[1]), 2)
 
     def test_formatted_money(self):
-        money = monetary.formatted_money(min=100, max=200)
-        self.assertTrue(100 <= float(money) < 200)
-        self.assertEqual(len(money.split('.')[1]), 2)
+        dollars = monetary.formatted_money(min=100, max=200)
+        self.assertTrue(dollars.startswith('$'))
